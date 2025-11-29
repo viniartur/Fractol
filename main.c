@@ -6,7 +6,7 @@
 /*   By: vvieira <vvieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:11:53 by vvieira           #+#    #+#             */
-/*   Updated: 2025/11/29 12:11:24 by vvieira          ###   ########.fr       */
+/*   Updated: 2025/11/29 12:16:51 by vvieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 void	fractal_init(t_fractal *f)
 {
 	f->mlx = mlx_init();
+	if (!f->mlx)
+		exit(1);
 	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "fract'ol");
+	if (!f->win)
+	{
+		free(f->mlx);
+		exit(1);
+	}
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel,
 			&f->line_length, &f->endian);
@@ -29,9 +36,9 @@ void	fractal_init(t_fractal *f)
 
 void	show_help(void)
 {
-	write(1, "Usage:\n", 7);
-	write(1, "  ./fractol M          - Mandelbrot\n", 36);
-	write(1, "  ./fractol J -0.7 0.27 - Julia with custom parameters\n", 53);
+	write(2, "Usage:\n", 7);
+	write(2, "  ./fractol M           - Mandelbrot\n", 36);
+	write(2, "  ./fractol J -0.7 0.27 - Julia with custom parameters\n", 53);
 }
 
 int	main(int argc, char **argv)
