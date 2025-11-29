@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvieira <vvieira@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/29 11:11:42 by vvieira           #+#    #+#             */
+/*   Updated: 2025/11/29 11:36:13 by vvieira          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -37,22 +49,22 @@ typedef struct s_fractal
 	t_complex	julia_c;
 }	t_fractal;
 
-// Complex number operations
 t_complex	complex_add(t_complex a, t_complex b);
 t_complex	complex_square(t_complex a);
 double		complex_abs(t_complex a);
 
-// Rendering
 void		render_fractal(t_fractal *f);
 void		my_mlx_pixel_put(t_fractal *f, int x, int y, int color);
 
-// Hooks
+int			calculate_mandelbrot(t_complex c);
+int			calculate_julia(t_complex z, t_complex c);
+
 int			key_hook(int keycode, t_fractal *f);
 int			mouse_hook(int button, int x, int y, t_fractal *f);
 int			close_window(t_fractal *f);
 
-// Utils
 void		show_help(void);
 int			create_trgb(int t, int r, int g, int b);
+double		ft_atof(const char *str);
 
 #endif
