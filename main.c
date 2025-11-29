@@ -6,7 +6,7 @@
 /*   By: vvieira <vvieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:11:53 by vvieira           #+#    #+#             */
-/*   Updated: 2025/11/29 11:29:34 by vvieira          ###   ########.fr       */
+/*   Updated: 2025/11/29 12:11:24 by vvieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, char **argv)
 	else if (argv[1][0] == 'J' && argc == 4)
 	{
 		f.type = 2;
-		f.julia_c.re = atof(argv[2]);
-		f.julia_c.im = atof(argv[3]);
+		f.julia_c.re = ft_atof(argv[2]);
+		f.julia_c.im = ft_atof(argv[3]);
 	}
 	else
 		return (show_help(), 1);
