@@ -6,7 +6,7 @@
 #    By: vvieira <vvieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/29 11:11:58 by vvieira           #+#    #+#              #
-#    Updated: 2025/11/29 11:11:59 by vvieira          ###   ########.fr        #
+#    Updated: 2025/11/29 12:05:03 by vvieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ MLX_DIR = minilibx-linux
 MLX = $(MLX_DIR)/libmlx.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
-SRC = main.c hooks.c render.c complex.c
+SRC = main.c hooks.c render.c complex.c utils.c
 OBJ = $(SRC:.c=.o)
 
 all: $(MLX) $(NAME)
@@ -43,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean ree
+.PHONY: all clean fclean re
